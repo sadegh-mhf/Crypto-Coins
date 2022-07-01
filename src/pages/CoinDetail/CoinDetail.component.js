@@ -74,8 +74,8 @@ const CoinDetail = () => {
                                 <label className={styles.chart_settings} htmlFor="chart-settings">Show data for:
                                     <select name="" id="chart-settings" value={days} onChange={handleChangeDays}>
                                         {
-                                            selectOptions.map(option => <option
-                                                value={option.value}>{option.name}</option>)
+                                            selectOptions.map((option,index) => <option
+                                                value={option.value} key={index}>{option.name}</option>)
                                         }
                                     </select>
                                 </label>
