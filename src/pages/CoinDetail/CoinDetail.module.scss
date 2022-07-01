@@ -3,7 +3,7 @@
   height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
-  background-color: rgba(173, 216, 230, 0.5);
+  background-color: var(--gray-bg-color);
 }
 
 .container {
@@ -27,7 +27,7 @@
 
   & > * {
     margin: 20px 0;
-    color: #1d1d1d;
+    color: var(--primary-text-color);
   }
 
   & p {
