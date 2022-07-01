@@ -6,6 +6,7 @@ import Chart from 'chart.js/auto';
 import moment from "moment";
 import {fetchCoinChart} from "redux/actions/CoinChart.action";
 import styles from './LineChart.module.scss';
+import {DEFAULT_PROPS, PROP_TYPES} from "./LineChart.config";
 
 Chart.register(CategoryScale);
 
@@ -38,5 +39,7 @@ const LineChart = ({coinId, days, type}) => {
         </div>
     );
 };
+
+LineChart.propTypes = PROP_TYPES;
 
 export {LineChart};

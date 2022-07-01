@@ -46,7 +46,7 @@ const CoinDetail = () => {
     }, [days])
 
     const handleChangeDays = (event) => {
-        setDays(event.target.value);
+        setDays(+event.target.value);
     }
 
     return (
@@ -69,7 +69,7 @@ const CoinDetail = () => {
                             <div className={styles.chart}>
                                 {
                                     coinChartData?.chartInfo[0]?.prices &&
-                                    <LineChart coinId={coinId} days={days} type={"line"} label={true}/>
+                                    <LineChart coinId={coinId} days={days} type={"line"}/>
                                 }
                                 <label className={styles.chart_settings} htmlFor="chart-settings">Show data for:
                                     <select name="" id="chart-settings" value={days} onChange={handleChangeDays}>
