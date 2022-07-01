@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {Provider} from 'react-redux';
+import {Route, Routes, Navigate} from "react-router-dom";
+import {store} from "./redux/store";
+import {Header, Home, CoinDetail} from "./pages";
+import {PATHS} from "./configs/routes.config";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+            <Header/>
+            <Routes>
+                <Route path={PATHS.COIN_DETAIL} element={<CoinDetail/>}/>
+                <Route path={PATHS.HOME} element={<Home/>} exact/>
+                <Route path={'*'} element={<Navigate to={PATHS.HOME} replace/>}/>
+            </Routes>
+        </Provider>);
 }
 
 export default App;
