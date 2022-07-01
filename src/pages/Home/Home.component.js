@@ -50,7 +50,7 @@ const Home = () => {
                                         <span className={styles.grayTxt}>{coin.name}</span>
                                     </div>
                                 </td>
-                                <td><b>$ {coin.current_price}</b></td>
+                                <td><b>$ {coin.current_price.toLocaleString('en-US')}</b></td>
                                 <td
                                     className={
                                         Math.sign(coin.price_change_percentage_24h) === 1
@@ -61,10 +61,10 @@ const Home = () => {
                                     {coin.price_change_percentage_24h.toFixed(2)} %
                                 </td>
                                 <td>
-                                    $ {coin.high_24h.toFixed(2)}
+                                    $ {coin.high_24h.toLocaleString('en-US')}
                                 </td>
                                 <td>
-                                    $ {coin.low_24h.toFixed(2)}
+                                    $ {coin.low_24h.toLocaleString('en-US')}
                                 </td>
                                 <td>
                                     <button className={styles.buyBtn} disabled={true}>

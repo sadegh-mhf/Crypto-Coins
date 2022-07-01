@@ -18,6 +18,25 @@ const CoinDetail = () => {
     const coinChartData = useSelector(state => state.coinChartState);
     const [days, setDays] = useState(2);
 
+    const selectOptions = [
+        {
+            name: "1 day ago",
+            value: 1
+        },
+        {
+            name: "2 days ago",
+            value: 2
+        },
+        {
+            name: "1 week ago",
+            value: 7
+        },
+        {
+            name: "1 month ago",
+            value: 30
+        }
+    ]
+
     useEffect(() => {
         dispatch(fetchCoinDetails(coinId));
     }, [coinId])
@@ -42,7 +61,7 @@ const CoinDetail = () => {
                             <p>
                                 <span> <b>Price:</b> </span>
                                 <span>
-                                {coinDetailsData?.coinInfo[0]?.market_data.current_price.usd.toFixed(3)} USD
+                                {coinDetailsData?.coinInfo[0]?.market_data.current_price.usd.toLocaleString('en-US')} USD
                             </span>
                             </p>
                         </div>
@@ -54,10 +73,10 @@ const CoinDetail = () => {
                                 }
                                 <label className={styles.chart_settings} htmlFor="chart-settings">Show data for:
                                     <select name="" id="chart-settings" value={days} onChange={handleChangeDays}>
-                                        <option value={1}>1 day ago</option>
-                                        <option value={2}>2 days ago</option>
-                                        <option value={7}>1 week ago</option>
-                                        <option value={30}>1 month ago</option>
+                                        {
+                                            selectOptions.map(option => <option
+                                                value={option.value}>{option.name}</option>)
+                                        }
                                     </select>
                                 </label>
                             </div>
@@ -68,5 +87,4 @@ const CoinDetail = () => {
         </>
     );
 };
-
 export {CoinDetail};
